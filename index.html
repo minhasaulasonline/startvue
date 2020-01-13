@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css2020.css">
+</head>
+
+<body>
+
+
+
+    <div id="app01" class="divPai">
+        </br>
+        <center>
+            <h1> Primeiros passos com Vue</h1>
+        </center>
+        <select> 
+            <option :value = '1'> valor 1</option>
+            <option :value = '2'> valor 2</option>
+            <option :value = '3'> valor 3</option>
+        </select>
+        <div id='div01' class="divFilha">
+            </br>
+            <h2 id='parh4'> Como inserir Vue na aplicação ? </h2>
+
+            <h4> No arquivo HTML inserir o seguinte código </h4>
+            <p id="par01">
+                &lt!DOCTYPE html &gt;</br>
+                &lt;html lang="en"&gt;</br>
+                &lt; head &gt;</br>
+                &lt; meta charset="UTF-8" &gt;</br>
+                &lt; meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</br>
+                &lt; meta http-equiv="X-UA-Compatible" content="ie=edge" &gt;</br>
+                &lt; title &gt; Document &lt; /title &gt;</br>
+                &lt link rel="stylesheet" type="text/css" href="arquivocss.css"&gt; </br>
+                &lt;/head&gt;</br>
+                &lt;body&gt; </br>
+                &lt; div id="app01"&gt; </br>
+                '{'{'datas'}'}' <br> &lt;p&gt; Não esquecer de remover as (') em '{'{'datas'}'}' para chamar a variavel data &lt;p&gt;</br>
+                &lt;/div&gt;</br>
+                &lt;script src=" https://unpkg.com/vue/dist/vue.js "&gt;&lt;/script&gt;</br>
+                &lt;script src="arquivoJS.js"&gt;</br>
+                &lt;/script&gt;</br>
+                &lt;/body&gt;</br>
+                &lt;/html&gt; </br>
+            </p>
+            <h4> No arquivo JS inserir o código a seguir </h4>
+            <p>
+                var app1 = new Vue({ </br>
+                el: '#app01',</br>
+                data: { datas: " " },</br>
+                methods: { } </br>
+                })
+            </p>
+            <h4> E vai o css também </h4>
+
+            <p> #app01 {background-color: rgba(221, 39, 39, 0.5);}</p>
+            </br>
+        </div>
+        </br>
+    </div>
+
+
+    <body>
+    </body>
+
+    <!-- start app02-->
+
+    <div id='app02' class="divPai">
+        </br>
+        <div id="app002" class="divFilha">
+            <br/>
+            <h4> Radio button e Checkbox</h4>
+            <p> Uso do Radio button e checkbox, relacionando valor com uma variável.</p>
+            <input v-model.lazy='datas' type="text" />
+            <p> {{datas}}<br/> {{arrayData}}
+            </p>
+            </br>
+            <p> Usando radio button, ao selecionar o valor do radio butto é inserido na varialvel usando v-model</p>
+            <ul>
+                <li> <input type="radio" value='1' v-model="datas"></li>
+                <li> <input type="radio" value='2' v-model="datas"></li>
+                <li> <input type="radio" value='3' v-model="datas"></li>
+            </ul>
+            <br/>
+
+            <p> usando checkbox, ao selecionar a checkbox o valor é inserido em um array, usando v-model </p>
+            <ul>
+                <input type="checkbox" value="a" v-model='arrayData' /><br/>
+                <input type="checkbox" value="b" v-model='arrayData' /><br/>
+                <input type="checkbox" value="c" v-model='arrayData' />
+            </ul>
+        </div>
+        </br>
+    </div>
+
+
+
+    <!-- end app02-->
+
+    <!-- start app03-->
+    <div class="divPai">
+        </br>
+        <div id="app03" class="divFilha">
+            </br>
+            <h2> Trabalhando com Rotas </h2>
+            </br>
+            <p> Criando o elemento ancora e o endereço do link, como estivesse usando as tags &lt; a &gt; e href =" ". </br>
+                Nesse caso elas foram substituidas respectivamente por &lt;router-link &gt; e to=" " </p>
+            &lt; router-link to='/home'&gt; Home &lt;/router-link &gt; </br>
+            &lt; router-link to="/about"&gt; About &lt; /router-link &gt; </br>
+            </br>
+            <p> Teremos esses links na tela</p>
+            <router-link to='/home'> Home </router-link>
+            <router-link to="/about"> About</router-link>
+            </br>
+            <p>Com as tags: &lt; router-view &gt; &lt;/router-view&gt; ,podemos indicar onde as </br>
+                views serão mostradas, abaixo temos "Home Page" e About Page" , essas podem ser,</br>
+                criadas usando um objeto template de configuração ou criando um component, esse é todo html</p>
+            <br/>
+            <h4> Aqui temos a view sendo mostrada</h4>
+            <router-view> </router-view>
+            </br>
+            <h4>O script!</h4>
+            <p> Agora vamos criar as variáveis que darão o suporte no Vue, essas serão criadas no</br>
+                arquivo ou tag script. </p>
+
+            const Home = {</br>
+            template: `&lt;div&gt; Home Page &lt;div/&gt;`, </br>
+            }</br>
+            const About = {</br>
+            template: `&lt;div&gt; About Page &lt;div/&gt;`</br>
+            }</br>
+            //lista (array) com objetos que tem a configuração da rota, tem 2 parametros </br>
+            O path com o endereço e o component com o template</br>
+            </br>
+            const routes = [</br>
+            { path: '/home', component: Home },</br>
+            { path: '/about', component: About }</br>
+            </br>
+            ]</br>
+            //iniciar o roteador criando uma variavel para armazenar o roteador</br>
+            const router = new VueRouter({ routes })</br>
+            </br>
+            //Agora passamos o objte router para o Vue, antes dos 'data'
+            </br>
+            </br>
+            var app3 = new Vue({</br>
+            el: '#app03',</br>
+            router,</br>
+            data: {</br>
+            </br>
+            },</br>
+            methods: {}</br>
+            })</br>
+            </br>
+
+
+        </div>
+    </div>
+    </div>
+
+
+    <!-- end app03-->
+    <script src=" https://unpkg.com/vue/dist/vue.js "></script>
+    <script src="https://unpkg.com/vue-router "></script>
+    <script src="js2020.js "></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+.divPai {
+    background-color: darkmagenta;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.divFilha {
+    background-color: rgb(248, 190, 248);
+    width: auto;
+    height: auto;
+    margin: 20px;
+}
+
+.textArea {
+    background-color: burlywood;
+    width: auto;
+    height: auto;
+    margin: 20px;
+}
+
+h1 {
+    margin-left: 30px;
+    color: rgb(244, 235, 245);
+}
+
+h2 {
+    margin-left: 15px;
+}
+
+h4 {
+    margin-left: 20px;
+}
+
+p {
+    margin-top: 10px;
+    margin-left: 40px;
+}
